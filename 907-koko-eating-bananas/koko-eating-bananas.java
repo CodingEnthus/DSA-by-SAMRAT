@@ -15,7 +15,7 @@ class Solution {
         }
         return hours;
     }
-    public int minEatingSpeed(int[] piles, int h) {
+    public int minEatingSpeed(int[] piles, int h){
         int low=1;
         int high=maxElement(piles);
         int ans=Integer.MAX_VALUE;
