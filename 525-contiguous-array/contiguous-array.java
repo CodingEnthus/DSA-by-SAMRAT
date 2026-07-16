@@ -5,7 +5,6 @@ class Solution {
         int maxLen=0;
         int sum=0;
         int n=nums.length;
-        int len=0;
         for(int i=0;i<n;i++){
             if(nums[i]==0){
                 nums[i]=-1;
