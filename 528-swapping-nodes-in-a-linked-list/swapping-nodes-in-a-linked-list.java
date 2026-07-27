@@ -18,7 +18,7 @@ class Solution {
             t=t.next;
             l++;
         }
-        ListNode left=head;;
+        ListNode left=head;
         for(int i=1;i<k;i++){
             left=left.next;
         }
