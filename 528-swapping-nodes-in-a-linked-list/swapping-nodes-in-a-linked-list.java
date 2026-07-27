@@ -25,8 +25,6 @@ class Solution {
         for(int i=1;i<l-k+1;i++){
             right=right.next;
         }
-        System.out.print("Left:"+left.val);
-        System.out.print("Right:"+right.val);
         int temp=left.val;
         left.val=right.val;
         right.val=temp;
