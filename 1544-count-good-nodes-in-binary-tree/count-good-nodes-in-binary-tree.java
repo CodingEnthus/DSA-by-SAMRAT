@@ -29,8 +29,6 @@ class Solution {
         int newMax = Math.max(maxSoFar, root.val);
         int left=dfs(root.left,newMax);
         int right=dfs(root.right,newMax);
-        return count+ left+right;
-
-        
+        return count+ left+right;   
     }
 }
