@@ -14,22 +14,19 @@
  * }
  */
 class Solution {
-    List<Integer> ans=new ArrayList<>();
     public boolean hasPathSum(TreeNode root, int targetSum) {
-        dfs(root,0);
-        if(ans.contains(targetSum)) return true;
-        else return false;
+        return dfs(root,0,targetSum);
     }
-    public void dfs(TreeNode root,int sum){
+    public boolean dfs(TreeNode root,int sum,int ans){
         if(root==null){
-            return;
+            return false;
         }
         sum+=root.val;
-        if(root.left==null && root.right==null){
-            ans.add(sum);
+        if(root.left==null && root.right==null && sum==ans){
+            return true;
         }
-        dfs(root.left,sum);
-        dfs(root.right,sum);
-
+        boolean left=dfs(root.left,sum,ans);
+        boolean right= dfs(root.right,sum,ans);
+        return left||right;
     }
 }
