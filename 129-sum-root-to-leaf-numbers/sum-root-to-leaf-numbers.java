@@ -15,20 +15,16 @@
  */
 class Solution {
     public int sumNumbers(TreeNode root) {
-        return dfs(root,"");
+        return dfs(root,0);
     }
-    public int dfs(TreeNode root,String path){
+    public int dfs(TreeNode root,int path){
         if(root==null){
             return 0;
         }
         int sum=0;
-        if(path.isEmpty()){
-            path=String.valueOf(root.val);
-        }else{
-            path=path+String.valueOf(root.val);
-        }
+        path=path*10+(root.val);
         if(root.left==null && root.right==null){
-            sum+=Integer.parseInt(path);
+            sum+=path;
         }
         sum+=dfs(root.left,path);
         sum+=dfs(root.right,path);
