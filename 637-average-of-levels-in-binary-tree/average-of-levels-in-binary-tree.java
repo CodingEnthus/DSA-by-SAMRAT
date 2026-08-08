@@ -20,7 +20,6 @@ class Solution {
         q.offer(root);
         while(!q.isEmpty()){
             int size=q.size();
-            List<Integer> level=new ArrayList<>();
             double sum=0;
             double avg=0;
             for(int i=0;i<size;i++){
