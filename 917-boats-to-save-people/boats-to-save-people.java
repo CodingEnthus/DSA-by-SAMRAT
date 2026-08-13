@@ -10,7 +10,7 @@ class Solution {
                 ans+=1;
                 r--;
             }else{
-                ans++;
+                ans+=1;
                 r--;
                 l++;
             }
