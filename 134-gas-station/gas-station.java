@@ -12,6 +12,6 @@ class Solution {
             }
         }
         if(total>=0) return start;
-        else return -1;
+        return -1;
     }
 }
