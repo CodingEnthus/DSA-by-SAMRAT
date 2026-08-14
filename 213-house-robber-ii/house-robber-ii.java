@@ -3,18 +3,19 @@ class Solution {
         int n=nums.length;
         if(n==0) return 0;
         if(n==1) return nums[0];
+        if(n==2) return Math.max(nums[0],nums[1]);
         return Math.max(robLinear(0,n-2,nums),robLinear(1,n-1,nums));
 
     }
     public int robLinear(int start,int end,int[] nums){
-        int dp1=0;
-        int dp2=0;
-        for(int i=start;i<=end;i++){
-            int current=Math.max(dp1,dp2+nums[i]);
-            dp2=dp1;
-            dp1=current;
+        int n=nums.length;
+        int[] dp=new int[n-1];
+        dp[0]=nums[start];
+        dp[1]=Math.max(nums[start],nums[start+1]);
+        for(int i=start+2,j=2;i<=end;i++,j++){
+            dp[j]=Math.max(dp[j-2]+nums[i],dp[j-1]);
         }
-        return dp1;
+        return dp[n-2];
 
         
     }
