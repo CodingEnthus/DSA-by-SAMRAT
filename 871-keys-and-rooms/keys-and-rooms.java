@@ -5,7 +5,6 @@ class Solution {
         for(int i=0;i<n;i++){
             graph.add(new ArrayList<>());
         }
-        int j=0;
         for(int u=0;u<rooms.size();u++){
             for(int v: rooms.get(u)) graph.get(u).add(v);
         }
