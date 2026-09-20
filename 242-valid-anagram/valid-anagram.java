@@ -14,9 +14,8 @@ class Solution {
             if(!map.containsKey(t.charAt(i))){
                 return false;
             }
-            if(map.containsKey(t.charAt(i))){
                 map.put(t.charAt(i),map.get(t.charAt(i))-1);
-            }
+            
             if(map.get(t.charAt(i))==0){
                 map.remove(t.charAt(i));
             }
