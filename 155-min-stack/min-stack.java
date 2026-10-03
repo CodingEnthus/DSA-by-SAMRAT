@@ -6,13 +6,14 @@ class MinStack {
     }
     
     public void push(int value) {
+        st.push(value);
         if(minSt.isEmpty()){
             minSt.push(value);
         }
         else{
             minSt.push(Math.min(value,minSt.peek()));
         }
-        st.push(value);
+        
     }
     
     public void pop() {
