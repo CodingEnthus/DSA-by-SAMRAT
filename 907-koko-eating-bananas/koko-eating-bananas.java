@@ -1,35 +1,32 @@
 class Solution {
-    int maxElement(int[] arr){
-        int max=arr[0];
-        for(int x:arr){
-            if(x>max){
-                max=x;
-            }
-        }
-        return max;
-    }
-    int totalHours(int[] arr,int k){
-        int hours=0;
-        for(int i=0;i<arr.length;i++){
-            hours+=Math.ceil(arr[i]+k-1)/k;
-        }
-        return hours;
-    }
-    public int minEatingSpeed(int[] piles, int h){
+    public int minEatingSpeed(int[] piles, int h) {
         int low=1;
-        int high=maxElement(piles);
-        int ans=Integer.MAX_VALUE;
+        int high=maxNum(piles);
         while(low<=high){
             int mid=low+(high-low)/2;
-            int totalH=totalHours(piles,mid);
-            if(totalH<=h){
-                ans=mid;
+            if(totalHours(piles,mid)<=h){
                 high=mid-1;
-            }else{
+            }
+            else{
                 low=mid+1;
             }
         }
+        return low;
+    }
+    int maxNum(int arr[]){
+        int n=arr.length;
+        int ans=Integer.MAX_VALUE;
+        for(int i=0;i<n;i++){
+            ans=Math.max(arr[i],ans);
+        }
         return ans;
-        
+    }
+    int totalHours(int[] arr,int k){
+        int ans=0;
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            ans+=Math.ceil((double)arr[i]/(double)k);
+        }
+        return ans;
     }
 }
