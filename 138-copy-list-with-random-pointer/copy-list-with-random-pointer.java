@@ -15,16 +15,16 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
-        HashMap<Node,Node> map=new HashMap<>();
         if(head==null) return head;
-        Node curr=head.next;
+        HashMap<Node,Node> map=new HashMap<>();
         Node newHead=new Node(head.val);
-        Node newCurr=newHead;
         map.put(head,newHead);
+        Node curr=head.next;
+        Node newCurr=newHead;
         while(curr!=null){
             Node newCopy=new Node(curr.val);
-            newCurr.next=newCopy;
             map.put(curr,newCopy);
+            newCurr.next=newCopy;
             curr=curr.next;
             newCurr=newCurr.next;
         }
@@ -32,10 +32,9 @@ class Solution {
         newCurr=newHead;
         while(curr!=null){
             newCurr.random=map.get(curr.random);
-            curr=curr.next;
             newCurr=newCurr.next;
+            curr=curr.next;
         }
         return newHead;
-
     }
 }
