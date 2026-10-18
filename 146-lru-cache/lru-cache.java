@@ -40,6 +40,7 @@ class LRUCache {
             return -1;
         }
         Node ans=map.get(key);
+        //to make it MRU
         delNode(ans);
         addNode(ans);
         return ans.val;
