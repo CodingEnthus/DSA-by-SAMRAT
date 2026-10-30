@@ -1,6 +1,6 @@
 class Trie {
     Trie[] children=new Trie[26];
-    boolean isEnd=false;
+        boolean isEnd=false;
     public Trie() {
         
     }
@@ -39,6 +39,7 @@ class Trie {
             if(root.children[idx]==null) return false;
             root=root.children[idx];
         }
+
             return true;
         
     }
