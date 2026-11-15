@@ -1,32 +1,26 @@
 class Solution {
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ans=new ArrayList<>();
-        solve(nums,ans,0);
+        backtrack(nums,ans,0);
         return ans;
     }
-    void solve(int[] nums,List<List<Integer>> ans,int Start){
-        if(Start==nums.length-1){
-            List<Integer> temp=new ArrayList<>();
+    void backtrack(int[] nums,List<List<Integer>> ans,int start){
+        if(start==nums.length){
+            List<Integer> current=new ArrayList<>();
             for(int num:nums){
-                temp.add(num);
+                current.add(num);
             }
-            ans.add(temp);
-            return;
+            ans.add(current);
         }
-          HashSet<Integer> set=new HashSet<>();
-        for(int i=Start;i<nums.length;i++){
-          
-            if(!set.contains(nums[i])){
-                set.add(nums[i]);
-                swap(nums,Start,i);
-                solve(nums,ans,Start+1);
-                  swap(nums,Start,i);
-            }
+        for(int i=start;i<nums.length;i++){
+        swap(i,nums,start);
+        backtrack(nums,ans,start+1);
+        swap(i,nums,start);
         }
     }
-    void swap(int[] nums,int a,int b){
-        int temp=nums[a];
-        nums[a]=nums[b];
-        nums[b]=temp;
+    void swap(int i,int[] nums,int start){
+        int temp=nums[i];
+        nums[i]=nums[start];
+        nums[start]=temp;
     }
 }
