@@ -11,6 +11,7 @@ class Solution {
                 current.add(num);
             }
             ans.add(current);
+            return;
         }
         for(int i=start;i<nums.length;i++){
         swap(i,nums,start);
